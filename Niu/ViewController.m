@@ -33,13 +33,18 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
     
   //  QNUploadManager *upManager = [[QNUploadManager alloc] init];
     
+    //加载图片资源
     NSData *imageData = [self loadImage];
+    
+    
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
    
     NSString *boundary = [NSString stringWithFormat:@"%08X%08X", arc4random(), arc4random()];
    // NSString *boundary = @"werghnvt54wef654rjuhgb56trtg34tweuyrgf";
  //   NSLog(@"\r\n%@",boundary);
+    
+    //构建请求体
     NSDictionary *params = @{@"token":token};
     NSMutableData *postData = [[NSMutableData alloc] init];
     for (NSString *key in params) {
@@ -57,9 +62,11 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
     [postData appendData:[[NSString stringWithFormat:@"--%@\r\nContent-Disposition: form-data; name=\"file\";filename=\"%@\"\nContent-Type: image/jpeg\r\nContent-Transfer-Encoding: binary\r\n\r\n %@\r\n",boundary,@"99.jpg",imageData] dataUsingEncoding:NSUTF8StringEncoding]];
     [postData appendData:[[NSString stringWithFormat:@"--%@--",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
    NSString *log = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",log);
+  //  NSLog(@"%@",log);
     NSString *bodyLength = [NSString stringWithFormat:@"%lu",(unsigned long)postData.length];
     
+    
+    //
     [manager POST:Host parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithHeaders:@{@"Host":Host,@"Content-Type":[NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary],@"Content-Length":bodyLength} body:postData];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
