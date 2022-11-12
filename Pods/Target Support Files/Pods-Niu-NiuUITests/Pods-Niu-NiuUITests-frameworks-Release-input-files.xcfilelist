@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Niu-NiuUITests/Pods-Niu-NiuUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework
+${BUILT_PRODUCTS_DIR}/Qiniu/Qiniu.framework

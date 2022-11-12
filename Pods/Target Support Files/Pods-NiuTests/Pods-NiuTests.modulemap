@@ -1,0 +1,6 @@
+framework module Pods_NiuTests {
+  umbrella header "Pods-NiuTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
