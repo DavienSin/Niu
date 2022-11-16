@@ -32,4 +32,16 @@
  *  @return 生成的UploadToken
  */
 + (NSString *)createTokenWithScope:(NSString *)scope accessKey:(NSString *)accessKey secretKey:(NSString *)secretKey;
+
+/**
+ *  生成七牛管理Token
+ *
+ *  @param method   请求 GET
+ *  @param url   请求URL
+ *  @param accessKey AccessKey
+ *  @param secretKey SecretKey
+ *
+ *  @return 生成的UploadToken
+ */
++(NSString *)createManagerTokenWithUrl:(NSString *)method requestUrl:(NSString *)url accessKey:(NSString *)accessKey secretKey:(NSString *)secretKey;
 @end

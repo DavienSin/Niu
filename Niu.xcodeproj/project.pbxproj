@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0923D8A629248B7C00DD8FAF /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0923D8A529248B7C00DD8FAF /* MainTableView.m */; };
+		094B5039292014EB007A3E5A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 094B5038292014EB007A3E5A /* 1.jpg */; };
+		09699C172923ED330070FBC4 /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09699C162923ED330070FBC4 /* 12.jpg */; };
 		0986F95F2917C06500958ED2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F95E2917C06500958ED2 /* AppDelegate.m */; };
 		0986F9622917C06500958ED2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F9612917C06500958ED2 /* SceneDelegate.m */; };
 		0986F9652917C06500958ED2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F9642917C06500958ED2 /* ViewController.m */; };
@@ -18,6 +21,10 @@
 		0986F9842917C06800958ED2 /* NiuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F9832917C06800958ED2 /* NiuUITests.m */; };
 		0986F9862917C06800958ED2 /* NiuUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F9852917C06800958ED2 /* NiuUITestsLaunchTests.m */; };
 		09BDCF86291A8F9B00675B1C /* XYQNToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BDCF84291A8F9B00675B1C /* XYQNToken.m */; };
+		09E1362229252997001B88D9 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E1362129252997001B88D9 /* NavigationController.m */; };
+		09E13627292536F5001B88D9 /* NiuStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E13626292536F5001B88D9 /* NiuStorage.m */; };
+		09E1362929253E4A001B88D9 /* Extend in Resources */ = {isa = PBXBuildFile; fileRef = 09E1362829253E4A001B88D9 /* Extend */; };
+		09E1362F29253F05001B88D9 /* NiuRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E1362E29253F05001B88D9 /* NiuRequest.m */; };
 		12D2AD597E39090387D16C5D /* Pods_Niu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37A821087FC853E82274357 /* Pods_Niu.framework */; };
 		2EA3F6B5AF9D2F64F62A9038 /* Pods_Niu_NiuUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28CD7C5AF970136587D7C64 /* Pods_Niu_NiuUITests.framework */; };
 		5A91567A147D343B226BF773 /* Pods_NiuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBA01ED2CC9E47A623E7316 /* Pods_NiuTests.framework */; };
@@ -41,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0923D8A429248B7C00DD8FAF /* MainTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
+		0923D8A529248B7C00DD8FAF /* MainTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableView.m; sourceTree = "<group>"; };
+		094B5038292014EB007A3E5A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		09699C162923ED330070FBC4 /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
 		0986F95A2917C06500958ED2 /* Niu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Niu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0986F95D2917C06500958ED2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0986F95E2917C06500958ED2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +71,13 @@
 		0986F9852917C06800958ED2 /* NiuUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NiuUITestsLaunchTests.m; sourceTree = "<group>"; };
 		09BDCF84291A8F9B00675B1C /* XYQNToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYQNToken.m; sourceTree = "<group>"; };
 		09BDCF85291A8F9B00675B1C /* XYQNToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYQNToken.h; sourceTree = "<group>"; };
+		09E1362029252997001B88D9 /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		09E1362129252997001B88D9 /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		09E13625292536F5001B88D9 /* NiuStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NiuStorage.h; sourceTree = "<group>"; };
+		09E13626292536F5001B88D9 /* NiuStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NiuStorage.m; sourceTree = "<group>"; };
+		09E1362829253E4A001B88D9 /* Extend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extend; sourceTree = "<group>"; };
+		09E1362D29253F05001B88D9 /* NiuRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NiuRequest.h; sourceTree = "<group>"; };
+		09E1362E29253F05001B88D9 /* NiuRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NiuRequest.m; sourceTree = "<group>"; };
 		10115F0A4882124DD5D456A9 /* Pods-Niu-NiuUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Niu-NiuUITests.release.xcconfig"; path = "Target Support Files/Pods-Niu-NiuUITests/Pods-Niu-NiuUITests.release.xcconfig"; sourceTree = "<group>"; };
 		11F9CAE2B9759ACC2E8C8C48 /* Pods-NiuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiuTests.debug.xcconfig"; path = "Target Support Files/Pods-NiuTests/Pods-NiuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		295834757AC262B421CD45C6 /* Pods-NiuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiuTests.release.xcconfig"; path = "Target Support Files/Pods-NiuTests/Pods-NiuTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +117,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0923D8A129248B0700DD8FAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09E1362329252A42001B88D9 /* NavigationBar */,
+				0923D8A229248B3000DD8FAF /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0923D8A229248B3000DD8FAF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0923D8A429248B7C00DD8FAF /* MainTableView.h */,
+				0923D8A529248B7C00DD8FAF /* MainTableView.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		0986F9512917C06500958ED2 = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +160,10 @@
 		0986F95C2917C06500958ED2 /* Niu */ = {
 			isa = PBXGroup;
 			children = (
-				09AB55BA291931B300456CBA /* HMAC-SHA1 */,
+				09E13624292536C1001B88D9 /* Tool */,
+				0923D8A129248B0700DD8FAF /* View */,
+				09699C162923ED330070FBC4 /* 12.jpg */,
+				094B5038292014EB007A3E5A /* 1.jpg */,
 				0986F95D2917C06500958ED2 /* AppDelegate.h */,
 				0986F95E2917C06500958ED2 /* AppDelegate.m */,
 				0986F9602917C06500958ED2 /* SceneDelegate.h */,
@@ -164,6 +203,44 @@
 				09BDCF84291A8F9B00675B1C /* XYQNToken.m */,
 			);
 			path = "HMAC-SHA1";
+			sourceTree = "<group>";
+		};
+		09E1362329252A42001B88D9 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				09E1362029252997001B88D9 /* NavigationController.h */,
+				09E1362129252997001B88D9 /* NavigationController.m */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		09E13624292536C1001B88D9 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				09AB55BA291931B300456CBA /* HMAC-SHA1 */,
+				09E1362C29253E93001B88D9 /* Http */,
+				09E1362A29253E59001B88D9 /* Storage */,
+				09E1362829253E4A001B88D9 /* Extend */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		09E1362A29253E59001B88D9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				09E13625292536F5001B88D9 /* NiuStorage.h */,
+				09E13626292536F5001B88D9 /* NiuStorage.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		09E1362C29253E93001B88D9 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				09E1362D29253F05001B88D9 /* NiuRequest.h */,
+				09E1362E29253F05001B88D9 /* NiuRequest.m */,
+			);
+			path = Http;
 			sourceTree = "<group>";
 		};
 		787193F9C3AA75D1FF9108CD /* Frameworks */ = {
@@ -297,8 +374,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E1362929253E4A001B88D9 /* Extend in Resources */,
 				0986F96D2917C06700958ED2 /* LaunchScreen.storyboard in Resources */,
+				094B5039292014EB007A3E5A /* 1.jpg in Resources */,
 				0986F96A2917C06700958ED2 /* Assets.xcassets in Resources */,
+				09699C172923ED330070FBC4 /* 12.jpg in Resources */,
 				0986F9682917C06500958ED2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,10 +508,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0986F9652917C06500958ED2 /* ViewController.m in Sources */,
+				09E13627292536F5001B88D9 /* NiuStorage.m in Sources */,
 				09BDCF86291A8F9B00675B1C /* XYQNToken.m in Sources */,
+				0923D8A629248B7C00DD8FAF /* MainTableView.m in Sources */,
 				0986F95F2917C06500958ED2 /* AppDelegate.m in Sources */,
+				09E1362F29253F05001B88D9 /* NiuRequest.m in Sources */,
 				0986F9702917C06700958ED2 /* main.m in Sources */,
 				0986F9622917C06500958ED2 /* SceneDelegate.m in Sources */,
+				09E1362229252997001B88D9 /* NavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +621,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -589,7 +673,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

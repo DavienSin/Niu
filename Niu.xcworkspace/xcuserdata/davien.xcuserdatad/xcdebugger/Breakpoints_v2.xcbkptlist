@@ -103,65 +103,129 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6770F25D-8D2E-4083-AE48-7A1322C36544"
-            shouldBeEnabled = "No"
+            uuid = "4F5A069F-D86B-453C-A110-28A0A193776F"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Niu/ViewController.m"
+            filePath = "../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLRequest.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "594"
+            endingLineNumber = "594"
+            landmarkName = "-setValue:forHTTPHeaderField:"
+            landmarkType = "6">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA7A05F9-C985-40DE-B696-476BEBED778D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "-POST:parameters:headers:constructingBodyWithBlock:progress:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E26F1E60-4C79-4A79-84B7-82940143620A"
-            shouldBeEnabled = "No"
+            uuid = "AE98DD7A-7F61-4C94-9D82-59A3CB180F49"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Niu/ViewController.m"
+            filePath = "Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "-setValue:forHTTPHeaderField:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "021B2477-114C-4A2F-937F-6CD61457097C"
-            shouldBeEnabled = "No"
+            uuid = "34D5EABF-C925-41AA-97E0-2AF284983661"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Niu/ViewController.m"
+            filePath = "Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "-HTTPRequestHeaders"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2EE6EA9F-4F81-430E-AFDD-8BE1EAF6AFFD"
+            uuid = "323D9C6B-4977-4A61-B359-F2E95EE8B2A7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Niu/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFCDCE02-E319-4886-B2FE-B3DD6A259222"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Niu/Tool/Http/NiuRequest.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "-getSpoceListFromServerWithKey:secretKey:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFCDCE02-E319-4886-B2FE-B3DD6A259222 - 23df0329a3d7c089"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NiuRequest getSpoceListFromServerWithKey:secretKey:]"
+                  moduleName = "Niu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davien/Documents/Niu/Niu/Tool/Http/NiuRequest.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "370">
+               </Location>
+               <Location
+                  uuid = "EFCDCE02-E319-4886-B2FE-B3DD6A259222 - 8a4adabbe614de78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__54-[NiuRequest getSpoceListFromServerWithKey:secretKey:]_block_invoke"
+                  moduleName = "Niu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davien/Documents/Niu/Niu/Tool/Http/NiuRequest.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

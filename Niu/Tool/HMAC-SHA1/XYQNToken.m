@@ -67,5 +67,13 @@
     return hash;
 }
 
++ (NSString *)createManagerTokenWithUrl:(NSString *)method requestUrl:(NSString *)url accessKey:(NSString *)accessKey secretKey:(NSString *)secretKey{
+    
+    
+    
+    return @"";
+}
+
+
 
 @end
