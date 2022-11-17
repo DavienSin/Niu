@@ -10,14 +10,12 @@
 #import "NiuStorage.h"
 #import "NiuRequest.h"
 #import "NavigationController.h"
-#include <Qiniu/QiniuSDK.h>
-
+#import "UploadViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) MainTableView *tableView;
-
-
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
 @implementation ViewController
@@ -25,17 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  //  [self loadTableView];
+    [self loadTableView];
     
+    _dataSource = [[NSMutableArray alloc] initWithArray:@[@"datest3"]];
     
-  //  [self loadNavigationBar];
-    
-   // [self getScpoeList];
+    [self loadNavigationBar];
+  //  [self getScpoeList];
 }
 
--(void)dd{
-    
-}
 
 -(void)getScpoeList{
     NiuRequest *request =  [[NiuRequest alloc] init];
@@ -60,7 +55,7 @@
 
 // return the number of the special section
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return _dataSource.count;
 }
 
 // return the tableView's section
@@ -75,12 +70,16 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier: identifier];    //  2
     }
+    
+    cell.textLabel.text = _dataSource[indexPath.row];
     return cell;
 }
 
 // select the special cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    UploadViewController *uploadController = [[UploadViewController alloc] init];
+    uploadController.navigationController.title = _dataSource[indexPath.row];
+    [self.navigationController pushViewController:uploadController animated:YES];
 }
 
 -(void)addNewSpoce{

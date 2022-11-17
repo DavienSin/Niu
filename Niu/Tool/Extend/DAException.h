@@ -11,6 +11,7 @@
 
 #import "NSDictionary+Exception.h"
 #import "NSArry+Exception.h"
+#import "UIDevice+VGAddition.h"
 
 #endif /* DAException_h */
 

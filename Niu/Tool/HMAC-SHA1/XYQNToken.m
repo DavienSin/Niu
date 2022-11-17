@@ -68,10 +68,10 @@
 }
 
 + (NSString *)createManagerTokenWithUrl:(NSString *)method requestUrl:(NSString *)url accessKey:(NSString *)accessKey secretKey:(NSString *)secretKey{
-    
-    
-    
-    return @"";
+    NSString *signStr = [NSString stringWithFormat:@"%@ %@\nHost:uc.qbox.me\n\n",method,url];
+    NSString *HMAC = [self HMACSHA1:signStr text:secretKey];
+    NSString *encodeStr = [self URLSafeBase64Encode:[HMAC dataUsingEncoding:NSUTF8StringEncoding]];
+    return [NSString stringWithFormat:@"%@:%@",accessKey,encodeStr];
 }
 
 
