@@ -318,8 +318,8 @@
             filePath = "Niu/Controller/Upload/UploadViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-openAlbumActioin"
             landmarkType = "7">
          </BreakpointContent>
@@ -337,38 +337,6 @@
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "-manager"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "73B63C0F-761F-48FB-A56C-28109BCB74E9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Niu/Controller/Upload/UploadViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-uploadAction"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "210852E2-8702-4FE7-8465-9CBD06F286F9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Niu/Controller/Upload/UploadViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-uploadAction"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

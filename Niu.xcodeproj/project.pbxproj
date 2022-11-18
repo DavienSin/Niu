@@ -12,9 +12,13 @@
 		0953AAED29261BDF007B31BF /* UploadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953AAEC29261BDF007B31BF /* UploadView.m */; };
 		0953AAF029261D05007B31BF /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953AAEF29261D05007B31BF /* UploadViewController.m */; };
 		09699C172923ED330070FBC4 /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09699C162923ED330070FBC4 /* 12.jpg */; };
+		097A50162927F15B00529ECB /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A50152927F15B00529ECB /* TabBarController.m */; };
+		097A501A2927F5FD00529ECB /* UploadBigFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A50192927F5FD00529ECB /* UploadBigFileController.m */; };
+		097A501D2927F62000529ECB /* UploadBigFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A501C2927F62000529ECB /* UploadBigFileView.m */; };
+		097A50202927F8DB00529ECB /* NSData+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A501F2927F8DB00529ECB /* NSData+block.m */; };
 		0986F95F2917C06500958ED2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F95E2917C06500958ED2 /* AppDelegate.m */; };
 		0986F9622917C06500958ED2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F9612917C06500958ED2 /* SceneDelegate.m */; };
-		0986F9652917C06500958ED2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F9642917C06500958ED2 /* ViewController.m */; };
+		0986F9652917C06500958ED2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0986F9642917C06500958ED2 /* MainViewController.m */; };
 		0986F9682917C06500958ED2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0986F9662917C06500958ED2 /* Main.storyboard */; };
 		0986F96A2917C06700958ED2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0986F9692917C06700958ED2 /* Assets.xcassets */; };
 		0986F96D2917C06700958ED2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0986F96B2917C06700958ED2 /* LaunchScreen.storyboard */; };
@@ -60,13 +64,21 @@
 		0953AAEE29261D05007B31BF /* UploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		0953AAEF29261D05007B31BF /* UploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		09699C162923ED330070FBC4 /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
+		097A50142927F15B00529ECB /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		097A50152927F15B00529ECB /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		097A50182927F5FD00529ECB /* UploadBigFileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadBigFileController.h; sourceTree = "<group>"; };
+		097A50192927F5FD00529ECB /* UploadBigFileController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadBigFileController.m; sourceTree = "<group>"; };
+		097A501B2927F62000529ECB /* UploadBigFileView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadBigFileView.h; sourceTree = "<group>"; };
+		097A501C2927F62000529ECB /* UploadBigFileView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadBigFileView.m; sourceTree = "<group>"; };
+		097A501E2927F8DB00529ECB /* NSData+block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+block.h"; sourceTree = "<group>"; };
+		097A501F2927F8DB00529ECB /* NSData+block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+block.m"; sourceTree = "<group>"; };
 		0986F95A2917C06500958ED2 /* Niu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Niu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0986F95D2917C06500958ED2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0986F95E2917C06500958ED2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0986F9602917C06500958ED2 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		0986F9612917C06500958ED2 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		0986F9632917C06500958ED2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0986F9642917C06500958ED2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0986F9632917C06500958ED2 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		0986F9642917C06500958ED2 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		0986F9672917C06500958ED2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0986F9692917C06700958ED2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0986F96C2917C06700958ED2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,6 +165,8 @@
 		0953AAE729261B47007B31BF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				097A50172927F3DC00529ECB /* Mine */,
+				097A50132927F10E00529ECB /* Tabbar */,
 				0953AAEA29261B97007B31BF /* Upload */,
 				0953AAE829261B56007B31BF /* Main */,
 			);
@@ -162,8 +176,8 @@
 		0953AAE829261B56007B31BF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0986F9632917C06500958ED2 /* ViewController.h */,
-				0986F9642917C06500958ED2 /* ViewController.m */,
+				0986F9632917C06500958ED2 /* MainViewController.h */,
+				0986F9642917C06500958ED2 /* MainViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -173,6 +187,8 @@
 			children = (
 				0953AAEB29261BDF007B31BF /* UploadView.h */,
 				0953AAEC29261BDF007B31BF /* UploadView.m */,
+				097A501B2927F62000529ECB /* UploadBigFileView.h */,
+				097A501C2927F62000529ECB /* UploadBigFileView.m */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -182,8 +198,26 @@
 			children = (
 				0953AAEE29261D05007B31BF /* UploadViewController.h */,
 				0953AAEF29261D05007B31BF /* UploadViewController.m */,
+				097A50182927F5FD00529ECB /* UploadBigFileController.h */,
+				097A50192927F5FD00529ECB /* UploadBigFileController.m */,
 			);
 			path = Upload;
+			sourceTree = "<group>";
+		};
+		097A50132927F10E00529ECB /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				097A50142927F15B00529ECB /* TabBarController.h */,
+				097A50152927F15B00529ECB /* TabBarController.m */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		097A50172927F3DC00529ECB /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		0986F9512917C06500958ED2 = {
@@ -265,6 +299,8 @@
 				09BEDB912926267200B099D1 /* NSDictionary+Exception.m */,
 				09BEDB8E2926267100B099D1 /* UIDevice+VGAddition.h */,
 				09BEDB8C2926267100B099D1 /* UIDevice+VGAddition.m */,
+				097A501E2927F8DB00529ECB /* NSData+block.h */,
+				097A501F2927F8DB00529ECB /* NSData+block.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -570,20 +606,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0986F9652917C06500958ED2 /* ViewController.m in Sources */,
+				0986F9652917C06500958ED2 /* MainViewController.m in Sources */,
 				0953AAF029261D05007B31BF /* UploadViewController.m in Sources */,
 				09E13627292536F5001B88D9 /* NiuStorage.m in Sources */,
 				09BDCF86291A8F9B00675B1C /* XYQNToken.m in Sources */,
 				09BEDB942926267200B099D1 /* NSDictionary+Exception.m in Sources */,
 				0923D8A629248B7C00DD8FAF /* MainTableView.m in Sources */,
 				0986F95F2917C06500958ED2 /* AppDelegate.m in Sources */,
+				097A501D2927F62000529ECB /* UploadBigFileView.m in Sources */,
 				09E1362F29253F05001B88D9 /* NiuRequest.m in Sources */,
 				0986F9702917C06700958ED2 /* main.m in Sources */,
 				0953AAED29261BDF007B31BF /* UploadView.m in Sources */,
 				0986F9622917C06500958ED2 /* SceneDelegate.m in Sources */,
+				097A50202927F8DB00529ECB /* NSData+block.m in Sources */,
 				09BEDB922926267200B099D1 /* UIDevice+VGAddition.m in Sources */,
+				097A50162927F15B00529ECB /* TabBarController.m in Sources */,
 				09BEDB932926267200B099D1 /* NSArry+Exception.m in Sources */,
 				09E1362229252997001B88D9 /* NavigationController.m in Sources */,
+				097A501A2927F5FD00529ECB /* UploadBigFileController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

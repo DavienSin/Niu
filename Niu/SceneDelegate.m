@@ -7,7 +7,8 @@
 
 #import "SceneDelegate.h"
 #import "NavigationController.h"
-#import "ViewController.h"
+#import "MainViewController.h"
+#import "TabBarController.h"
 
 @interface SceneDelegate ()
 
@@ -22,10 +23,21 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     UIWindow *window = [[UIWindow alloc] initWithWindowScene:windowScene];
-    NavigationController *nav = [[NavigationController alloc] initWithRootViewController:[ViewController new]];
+    
+    MainViewController *mc = [[MainViewController alloc] init];
+    NavigationController *nav = [[NavigationController alloc] initWithRootViewController:mc];
+    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"spoce" image:nil tag:0];
+    nav.tabBarItem = item;
+    item.badgeValue = @"77+";
+   // nav.navigationBar.translucent = NO;
+    
+    
+    TabBarController *tabbar = [[TabBarController alloc] init];
+  //  tabbar.tabb
+    tabbar.viewControllers = @[nav];
     
     _window = window;
-    _window.rootViewController = nav;
+    _window.rootViewController = tabbar;
     
     [_window makeKeyAndVisible];
     

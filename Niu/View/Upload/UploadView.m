@@ -48,6 +48,9 @@
         _keyLabel.text = @"key:";
         [self addSubview:_keyLabel];
         
+        _errorLabel = [[UILabel alloc] init];
+        [self addSubview:_errorLabel];
+        
     }
     return self;
 }

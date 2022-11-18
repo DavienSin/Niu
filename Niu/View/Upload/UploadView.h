@@ -29,6 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 //成功上传后服务端返回的文件Key值
 @property (nonatomic,strong) UILabel *keyLabel;
 
+//失败上传后服务端返回的错误信息
+@property (nonatomic,strong) UILabel *errorLabel;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

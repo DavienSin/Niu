@@ -81,19 +81,49 @@
         make.height.mas_equalTo(44);
     }];
     
+    [_uploadView.errorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_uploadView.keyLabel.mas_bottom).offset(20);
+        make.left.right.height.equalTo(_uploadView.keyLabel);
+    }];
+    
 }
 
 -(void)uploadAction{
-    NiuRequest *request = [[NiuRequest alloc] init];
-    NSData *data = UIImageJPEGRepresentation(_uploadView.imageView.image, 1);
-    [request uploadFiletToSpoceWithoutName:data scope:@"datest3" progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%lld",uploadProgress.completedUnitCount);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-      //  NSLog(@"%@",[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil]);
-        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
+    if(!_uploadView.imageView.image){
+        _uploadView.errorLabel.text = @"未选择图片";
+   }else{
+       NiuRequest *request = [[NiuRequest alloc] init];
+       NSData *data = UIImageJPEGRepresentation(_uploadView.imageView.image, 1);
+       if([_uploadView.nameField.text isEqualToString:@""]){
+           [request uploadFiletToSpoceWithoutName:data scope:@"datest3" progress:^(NSProgress * _Nonnull uploadProgress) {
+                NSLog(@"%lld",uploadProgress.completedUnitCount);
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [self successResult:responseObject];
+             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [self errorRestlt:error];
+             }];
+       }else{
+           [request uploadFiletToScopeWithName:data scope:@"datest3" name:_uploadView.nameField.text progress:^(NSProgress * _Nonnull uploadProgress) {
+               NSLog(@"%lld",uploadProgress.completedUnitCount);
+           } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+               [self successResult:responseObject];
+           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+               [self errorRestlt:error];
+           }];
+       }
+    }
+}
+
+-(void)successResult:(NSDictionary *)sender{
+    self.uploadView.hashLabel.text = [NSString stringWithFormat:@"hash:%@",sender[@"hash"]];
+    self.uploadView.keyLabel.text = [NSString stringWithFormat:@"key:%@",sender[@"key"]];
+    self.uploadView.errorLabel.text = @"";
+}
+
+-(void)errorRestlt:(NSError *)sender{
+    self.uploadView.hashLabel.text = @"";
+    self.uploadView.keyLabel.text = @"";
+    self.uploadView.errorLabel.text = sender.description;
 }
 
 -(void)openAlbumActioin{

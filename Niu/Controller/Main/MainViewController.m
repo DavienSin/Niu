@@ -5,30 +5,35 @@
 //  Created by Davien Sin on 2022/11/6.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "MainTableView.h"
 #import "NiuStorage.h"
 #import "NiuRequest.h"
 #import "NavigationController.h"
 #import "UploadViewController.h"
+#import "NSData+block.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) MainTableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self loadTableView];
+   // [self loadTableView];
     
-    _dataSource = [[NSMutableArray alloc] initWithArray:@[@"datest3"]];
+    //_dataSource = [[NSMutableArray alloc] initWithArray:@[@"datest3"]];
     
-    [self loadNavigationBar];
+   // [self loadNavigationBar];
   //  [self getScpoeList];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"12" ofType:@"jpg"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    [NSData cutDataIntoBlockWithSize:data blockSize:4096];
+    
 }
 
 
@@ -78,7 +83,7 @@
 // select the special cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UploadViewController *uploadController = [[UploadViewController alloc] init];
-    uploadController.navigationController.title = _dataSource[indexPath.row];
+   // uploadController.navigationController.navigationBar = _dataSource[indexPath.row];
     [self.navigationController pushViewController:uploadController animated:YES];
 }
 

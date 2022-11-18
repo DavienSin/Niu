@@ -16,12 +16,14 @@ PODS:
     - AFNetworking/NSURLSession
   - HappyDNS (1.0.2)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
   - Qiniu (8.4.4):
     - HappyDNS (~> 1.0.2)
 
 DEPENDENCIES:
   - AFNetworking
   - Masonry
+  - MBProgressHUD
   - Qiniu (~> 8.4.1)
 
 SPEC REPOS:
@@ -29,14 +31,16 @@ SPEC REPOS:
     - AFNetworking
     - HappyDNS
     - Masonry
+    - MBProgressHUD
     - Qiniu
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   HappyDNS: 75eed16b27c6c3abccea34ac349ab7b7e954b25b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Qiniu: 60ba88dadb712bcf1fb2d5e50c037b073ab7df2a
 
-PODFILE CHECKSUM: b399e9fb21758dddd2ccf887ce3abf724437b147
+PODFILE CHECKSUM: b1d15d1411b64ce3979e274220caf5db789c36f3
 
 COCOAPODS: 1.11.3

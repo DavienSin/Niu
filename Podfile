@@ -9,6 +9,8 @@ target 'Niu' do
 	pod 'AFNetworking'
   pod "Qiniu", "~> 8.4.1"
 	pod 'Masonry'
+  pod 'MBProgressHUD'
+  
  target 'NiuTests' do
     inherit! :search_paths
     # Pods for testing
