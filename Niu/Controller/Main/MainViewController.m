@@ -12,6 +12,7 @@
 #import "NavigationController.h"
 #import "UploadViewController.h"
 #import "NSData+block.h"
+#import "XYQNToken.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -28,12 +29,9 @@
     
     //_dataSource = [[NSMutableArray alloc] initWithArray:@[@"datest3"]];
     
-   // [self loadNavigationBar];
+    [self loadNavigationBar];
   //  [self getScpoeList];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"12" ofType:@"jpg"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    [NSData cutDataIntoBlockWithSize:data blockSize:4096];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 
@@ -88,6 +86,30 @@
 }
 
 -(void)addNewSpoce{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"13" ofType:@"tar"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSArray *a = [NSData cutDataIntoBlockWithSize:data blockSize:1024 * 1024 * 4];
+    NSString *token = [XYQNToken createTokenWithScope:@"datest3" accessKey:@"8Z-kuG8I94-2wxVDUgHYM6bMeZA1QvZK1uba44E1" secretKey:@"unhxmNvwA3Gwolf2HXPQolUNVaZdVKCyJpBnTrsR"];
+   
+    NiuRequest *request = [[NiuRequest alloc] init];
+//    [request createUploadBlockWithSize:token blockData:a[0] blockSize:4194304 progress:^(NSProgress * _Nonnull uploadProgress) {
+//        NSLog(@"%@",uploadProgress);
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"%@",responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@",error);
+//    }];
+    NSData *d = a[1];
+    [request uploadBlockWithCtx:token blockData:[d subdataWithRange:NSMakeRange(0, 1024)] ctx:@"VfPHEsLBAOqF95NdRUaybQGLmXen91opF4wtnQGZrZ0ywRnWv7xDcIofpJ98fCRwSIl6WEiNckiDPfYwnwAAdQ5Ii5wkcAEAAEiJDQotLUJvdW5kYXJ5KzEzNUM0MzQ2MkQzMzZFODgtLQ0KBT8AAAD__z8AAAAAAAAAQAD__z8AAQAAAHFOM2NCQUFBQUFBRUhBTUFqR2Y0Rl9fX1B3QT0=" nextChunkOffset:4194303 progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"%@",uploadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+    
+    
     
 }
 

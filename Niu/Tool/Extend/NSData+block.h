@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSData(Block)
 
 
-+ (NSArray *)cutDataIntoBlockWithSize:(NSData *)data blockSize:(nullable const void *)size;
++ (NSArray *)cutDataIntoBlockWithSize:(NSData *)data blockSize:(NSInteger)size ;
 
 
 @end

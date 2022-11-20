@@ -13,6 +13,7 @@ NSString * const AK = @"8Z-kuG8I94-2wxVDUgHYM6bMeZA1QvZK1uba44E1";
 NSString * const SK = @"unhxmNvwA3Gwolf2HXPQolUNVaZdVKCyJpBnTrsR";
 NSString * const Host = @"https://upload-z2.qiniup.com";
 
+
 @interface NiuRequest()
 
 @property (nonatomic,strong) AFHTTPSessionManager *manager;
@@ -40,7 +41,7 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
     NSString *uploadToken = [XYQNToken createTokenWithScope:scope accessKey:AK secretKey:SK];
     _manager = self.manager;
     [_manager.requestSerializer setValue:@"multipart/form-data;" forHTTPHeaderField:@"Content-Type"];
-    [_manager POST:@"https://upload-z2.qiniup.com" parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [_manager POST:Host parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFormData:[uploadToken dataUsingEncoding:NSUTF8StringEncoding] name:@"token"];
         [formData appendPartWithFileData:file name:@"file" fileName:name mimeType:@"image/jpg"];
     } progress:uploadProgress success:success failure:failure];
@@ -60,6 +61,29 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+}
+
+- (void)createUploadBlockWithSize:(NSString *)token blockData:(NSData *)data blockSize:(NSInteger)size progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+ 
+    _manager = self.manager;
+    [_manager.requestSerializer setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    // 为何af传data会多100Byte？
+  //  [_manager.requestSerializer setValue:@"4194309" forHTTPHeaderField:@"Content-Length"];
+    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    [_manager POST:@"https://upload-z2.qiniup.com/mkblk/4194304" parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFormData:data name:@""];
+    } progress:uploadProgress success:success failure:failure];
+}
+
+-(void)uploadBlockWithCtx:(NSString *)token blockData:(NSData *)data ctx:(NSString *)ctx nextChunkOffset:(NSInteger)offset progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+    
+    _manager = self.manager;
+    [_manager.requestSerializer setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    NSString *url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/bput/%@/%lu",ctx,offset];
+    [_manager POST:url parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFormData:data name:@""];
+    } progress:uploadProgress success:success failure:failure];
 }
 
 @end

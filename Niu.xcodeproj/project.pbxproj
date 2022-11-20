@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0923D8A629248B7C00DD8FAF /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0923D8A529248B7C00DD8FAF /* MainTableView.m */; };
 		094B5039292014EB007A3E5A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 094B5038292014EB007A3E5A /* 1.jpg */; };
+		09506A8C2929250A00E5AE07 /* 13.tar in Resources */ = {isa = PBXBuildFile; fileRef = 09506A8B2929250A00E5AE07 /* 13.tar */; };
 		0953AAED29261BDF007B31BF /* UploadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953AAEC29261BDF007B31BF /* UploadView.m */; };
 		0953AAF029261D05007B31BF /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953AAEF29261D05007B31BF /* UploadViewController.m */; };
 		09699C172923ED330070FBC4 /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09699C162923ED330070FBC4 /* 12.jpg */; };
@@ -59,6 +60,7 @@
 		0923D8A429248B7C00DD8FAF /* MainTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
 		0923D8A529248B7C00DD8FAF /* MainTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableView.m; sourceTree = "<group>"; };
 		094B5038292014EB007A3E5A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		09506A8B2929250A00E5AE07 /* 13.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = 13.tar; sourceTree = "<group>"; };
 		0953AAEB29261BDF007B31BF /* UploadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadView.h; sourceTree = "<group>"; };
 		0953AAEC29261BDF007B31BF /* UploadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadView.m; sourceTree = "<group>"; };
 		0953AAEE29261D05007B31BF /* UploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				0923D8A129248B0700DD8FAF /* View */,
 				09E13624292536C1001B88D9 /* Tool */,
 				09699C162923ED330070FBC4 /* 12.jpg */,
+				09506A8B2929250A00E5AE07 /* 13.tar */,
 				094B5038292014EB007A3E5A /* 1.jpg */,
 				0986F95D2917C06500958ED2 /* AppDelegate.h */,
 				0986F95E2917C06500958ED2 /* AppDelegate.m */,
@@ -475,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0986F96D2917C06700958ED2 /* LaunchScreen.storyboard in Resources */,
+				09506A8C2929250A00E5AE07 /* 13.tar in Resources */,
 				094B5039292014EB007A3E5A /* 1.jpg in Resources */,
 				0986F96A2917C06700958ED2 /* Assets.xcassets in Resources */,
 				09699C172923ED330070FBC4 /* 12.jpg in Resources */,

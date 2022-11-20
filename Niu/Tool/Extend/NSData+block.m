@@ -12,10 +12,27 @@
 
 @implementation NSData(Block)
 
-+ (NSArray *)cutDataIntoBlockWithSize:(NSData *)data blockSize:(const void *)size{
-  //  NSLog(@"%d",[data get]);
-    return @[];
++ (NSArray *)cutDataIntoBlockWithSize:(NSData *)data blockSize:(NSInteger)size{
+    NSUInteger dataLength = data.length;
+    NSInteger location = 0;
+    NSMutableArray *blockData = [[NSMutableArray alloc] init];
+    do {
+        if (dataLength > size) {
+            NSRange range =NSMakeRange(location*size, size - 106);
+            location++;
+            [blockData addObject:[data subdataWithRange:range]];
+            dataLength = dataLength - size - 106;
+        }else{
+            NSRange range = NSMakeRange(location * size, dataLength);
+            [blockData addObject:[data subdataWithRange:range]];
+            dataLength = 0;
+            }
+        } while (dataLength>0);
+    
+    return blockData;
 }
+
+
 
 
 @end
