@@ -92,27 +92,62 @@
     NSString *token = [XYQNToken createTokenWithScope:@"datest3" accessKey:@"8Z-kuG8I94-2wxVDUgHYM6bMeZA1QvZK1uba44E1" secretKey:@"unhxmNvwA3Gwolf2HXPQolUNVaZdVKCyJpBnTrsR"];
    
     NiuRequest *request = [[NiuRequest alloc] init];
-//    [request createUploadBlockWithSize:token blockData:a[0] blockSize:4194304 progress:^(NSProgress * _Nonnull uploadProgress) {
-//        NSLog(@"%@",uploadProgress);
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@",responseObject);
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"%@",error);
-//    }];
-    NSData *d = a[1];
-    [request uploadBlockWithCtx:token blockData:[d subdataWithRange:NSMakeRange(0, 1024)] ctx:@"VfPHEsLBAOqF95NdRUaybQGLmXen91opF4wtnQGZrZ0ywRnWv7xDcIofpJ98fCRwSIl6WEiNckiDPfYwnwAAdQ5Ii5wkcAEAAEiJDQotLUJvdW5kYXJ5KzEzNUM0MzQ2MkQzMzZFODgtLQ0KBT8AAAD__z8AAAAAAAAAQAD__z8AAQAAAHFOM2NCQUFBQUFBRUhBTUFqR2Y0Rl9fX1B3QT0=" nextChunkOffset:4194303 progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%@",uploadProgress);
+
+    __block NSString *uploadId;
+    [request initiateMultipartUpload:token BucketName:@"datest3" EncodedObjectName:@"" progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"operation1----->%@",uploadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
+        NSDictionary *respone = responseObject;
+        uploadId = respone[@"uploadId"];
+        [self uploadBlock:token fileData:a BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+        NSLog(@"operation1----->%@",error);
     }];
-    
-    
-    
-    
+
 }
 
+-(void)uploadBlock:(NSString *)token fileData:(NSArray *)data BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectName UploadId:(NSString *)uploadId{
+    NiuRequest *request = [[NiuRequest alloc] init];
+    __block NSMutableArray *relayOperations = [[NSMutableArray alloc] init];
+    NSBlockOperation *relayOperation;
+    __block NSMutableArray *parts = [[NSMutableArray alloc] init];
+    for (int i = 1; i < data.count+1; i++) {
+        NSBlockOperation *temp = [NSBlockOperation blockOperationWithBlock:^{
+            [request uploadPart:token fileData:data[i-1] BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId PartNumber:i progress:^(NSProgress * _Nonnull uploadProgress) {
+                NSLog(@"operation----->%@",uploadProgress);
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [parts addObject:@[@{@"partNumber":@1},@{@"etag":responseObject[@"etag"]}]];
+              //  [self completeMultipartUpload:token BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId parts:];
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"operation1----->%@",error);
+            }];
+            
+        }];
+        if(relayOperation){
+            [temp addDependency:relayOperation];
+        }else{
+            relayOperation = temp;
+        }
+        [relayOperations addObject:temp];
+    }
+    
+   NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+   [queue addOperations:relayOperations waitUntilFinished:NO];
+}
+
+-(void)completeMultipartUpload:(NSString *)token BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectName UploadId:(NSString *)uploadId parts:(NSArray *)parts{
+    // 完成文件上传
+    NiuRequest *request = [[NiuRequest alloc] init];
+   
+        [request completeMultipartUpload:token BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId parts:parts fname:@"gg" mimeType:@"rar" progress:^(NSProgress * _Nonnull uploadProgress) {
+            NSLog(@"%@",uploadProgress);
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"%@",responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@",error);
+        }];
+   
+}
 
 
 

@@ -64,7 +64,7 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
 }
 
 - (void)createUploadBlockWithSize:(NSString *)token blockData:(NSData *)data blockSize:(NSInteger)size progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
- 
+ ///buckets/<BucketName>/objects/<EncodedObjectName>/uploads
     _manager = self.manager;
     [_manager.requestSerializer setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
     // 为何af传data会多100Byte？
@@ -83,6 +83,52 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
     NSString *url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/bput/%@/%lu",ctx,offset];
     [_manager POST:url parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFormData:data name:@""];
+    } progress:uploadProgress success:success failure:failure];
+}
+
+-(void)initiateMultipartUpload:(NSString *)token BucketName:(NSData *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+    NSString *url;
+    if([encodedObjectNamesize isEqualToString:@""]){
+        url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/~/uploads",bucketName];
+    }else{
+        url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/%@/uploads",bucketName,encodedObjectNamesize];
+    }
+    _manager = self.manager;
+    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    [_manager POST:url parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    } progress:uploadProgress success:success failure:failure];
+}
+
+
+-(void)uploadPart:(NSString *)token fileData:(NSData *)data BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize UploadId:(NSString *)uploadId PartNumber:(NSInteger)partNumber progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+    NSString *url;
+    if([encodedObjectNamesize isEqualToString:@""]){
+        url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/~/uploads/%@/%lu",bucketName,uploadId,partNumber];
+    }else{
+        url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/%@/uploads/%@/%lu",bucketName,encodedObjectNamesize,uploadId,partNumber];
+    }
+    _manager = self.manager;
+    [_manager.requestSerializer setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    
+    [_manager PUT:url parameters:data headers:nil success:success failure:failure];
+}
+
+-(void)completeMultipartUpload:(NSString *)token BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize UploadId:(NSString *)uploadId parts:(NSArray *)parts fname:(NSString *)fname mimeType:(NSString *)mimeType progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+    NSString *url;
+    if([encodedObjectNamesize isEqualToString:@""]){
+        url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/~/uploads/%@",bucketName,uploadId];
+    }else{
+        url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/%@/uploads/%@",bucketName,encodedObjectNamesize,uploadId];
+    }
+    _manager = self.manager;
+    [_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    
+    [_manager POST:url parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDictionary *json = @{@"parts":parts,@"mimeType":mimeType,@"fname":fname};
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+        [formData appendPartWithFormData:jsonData name:@""];
     } progress:uploadProgress success:success failure:failure];
 }
 

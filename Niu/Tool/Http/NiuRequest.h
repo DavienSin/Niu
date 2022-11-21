@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
                           failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
 
 /**
- 分片上传文件到指定Spoce
+ 分片上传文件到指定SpoceV1
     
  @param token  uploadToken
  @param data 块内容
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
                          failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
 
 /**
- 继续分片上传文件到指定Spoce
+ 继续分片上传文件到指定SpoceV1
     
  @param token  uploadToken
  @param data 块内容
@@ -87,7 +87,73 @@ NS_ASSUME_NONNULL_BEGIN
                  progress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
                   success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
                   failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
+
+/**
+ 分片上传文件到指定api-V2
+    
+ @param token  uploadToken
+ @param bucketName 空间名称
+ @param encodedObjectNamesize 资源名
+ @param uploadProgress 上传进度
+ @param success 成功回调
+ @param failure 失败回调
+  */
+-(void)initiateMultipartUpload:(NSString *)token
+                    BucketName:(NSString *)bucketName
+             EncodedObjectName:(NSString *)encodedObjectNamesize
+                        progress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
+                         success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
+                         failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
+
+/**
+ 分片上传文件到指定api-V2
+    
+ @param token  uploadToken
+ @param data  fileData
+ @param bucketName 空间名称
+ @param encodedObjectNamesize 资源名
+ @param uploadId 上传ID，后续上传的数据必须统一
+ @param partNumber partNumber 区块编号，如果设置重复，会数据覆盖,取值1-10000
+ @param uploadProgress 上传进度
+ @param success 成功回调
+ @param failure 失败回调
+  */
+-(void)uploadPart:(NSString *)token
+         fileData:(NSData *)data
+       BucketName:(NSString *)bucketName
+EncodedObjectName:(NSString *)encodedObjectNamesize
+         UploadId:(NSString *)uploadId
+       PartNumber:(NSInteger)partNumber
+         progress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
+          success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
+          failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
+
+
+/**
+ 完成文件上传 api-V2
+    
+ @param token  uploadToken
+ @param bucketName 空间名称
+ @param encodedObjectNamesize 资源名
+ @param parts 已经上传 Part 列表 （ 包括 PartNumber （ int ）和调用 uploadPart API 服务端返回的 Etag （ string ））
+ @param fname 上传的原始文件名
+ @param mimeType 文件类
+ @param uploadProgress 上传进度
+ @param success 成功回调
+ @param failure 失败回调
+  */
+-(void)completeMultipartUpload:(NSString *)token
+                    BucketName:(NSString *)bucketName
+             EncodedObjectName:(NSString *)encodedObjectNamesize
+                      UploadId:(NSString *)uploadId
+                         parts:(NSArray *)parts
+                         fname:(NSString *)fname
+                      mimeType:(NSString *)mimeType
+                      progress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
+                       success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
+                       failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
 @end
+
 
 
 //-(void)createUploadBlock
