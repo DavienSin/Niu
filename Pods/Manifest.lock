@@ -14,14 +14,29 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - ASIHTTPRequest (1.8.2):
+    - ASIHTTPRequest/ASIWebPageRequest (= 1.8.2)
+    - ASIHTTPRequest/CloudFiles (= 1.8.2)
+    - ASIHTTPRequest/Core (= 1.8.2)
+    - ASIHTTPRequest/S3 (= 1.8.2)
+  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/CloudFiles (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/Core (1.8.2):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.2):
+    - ASIHTTPRequest/Core
   - HappyDNS (1.0.2)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - Qiniu (8.4.4):
     - HappyDNS (~> 1.0.2)
+  - Reachability (3.2)
 
 DEPENDENCIES:
   - AFNetworking
+  - ASIHTTPRequest (~> 1.8.2)
   - Masonry
   - MBProgressHUD
   - Qiniu (~> 8.4.1)
@@ -29,18 +44,22 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - ASIHTTPRequest
     - HappyDNS
     - Masonry
     - MBProgressHUD
     - Qiniu
+    - Reachability
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
   HappyDNS: 75eed16b27c6c3abccea34ac349ab7b7e954b25b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Qiniu: 60ba88dadb712bcf1fb2d5e50c037b073ab7df2a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: b1d15d1411b64ce3979e274220caf5db789c36f3
+PODFILE CHECKSUM: 307e7c6797ee222648d4e25ba883bb9368eea238
 
 COCOAPODS: 1.11.3

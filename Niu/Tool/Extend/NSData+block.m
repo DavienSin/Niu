@@ -18,17 +18,17 @@
     NSMutableArray *blockData = [[NSMutableArray alloc] init];
     do {
         if (dataLength > size) {
-            NSRange range =NSMakeRange(location*size, size - 105);
+            NSRange range =NSMakeRange(location * size, size);
             location++;
             [blockData addObject:[data subdataWithRange:range]];
-            dataLength = dataLength - size - 105;
+            dataLength = dataLength - size;
         }else{
             NSRange range = NSMakeRange(location * size, dataLength);
             [blockData addObject:[data subdataWithRange:range]];
             dataLength = 0;
             }
         } while (dataLength>0);
-    
+  
     return blockData;
 }
 

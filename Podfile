@@ -10,6 +10,7 @@ target 'Niu' do
   pod "Qiniu", "~> 8.4.1"
 	pod 'Masonry'
   pod 'MBProgressHUD'
+  pod 'ASIHTTPRequest', '~> 1.8.2'
   
  target 'NiuTests' do
     inherit! :search_paths

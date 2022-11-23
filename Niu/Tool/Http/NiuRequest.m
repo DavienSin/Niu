@@ -109,9 +109,23 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
     }
     _manager = self.manager;
     [_manager.requestSerializer setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"%lu",data.length] forHTTPHeaderField:@"Content-Length"];
     [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    _manager.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    NSMutableURLRequest *req = [_manager.requestSerializer multipartFormRequestWithMethod:@"PUT" URLString:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        [formData appendPartWithFormData:data name:@""];
+//    } error:nil];
     
-    [_manager PUT:url parameters:data headers:nil success:success failure:failure];
+   [_manager PUT:url parameters:data headers:nil success:success failure:failure];
+    
+}
+
+-(void)putSuccess:(id)sender{
+    NSLog(@"%@", sender);
+}
+
+-(void)putFail:(id)sender{
+    NSLog(@"%@",sender);
 }
 
 -(void)completeMultipartUpload:(NSString *)token BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize UploadId:(NSString *)uploadId parts:(NSArray *)parts fname:(NSString *)fname mimeType:(NSString *)mimeType progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
@@ -122,14 +136,31 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
         url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/%@/uploads/%@",bucketName,encodedObjectNamesize,uploadId];
     }
     _manager = self.manager;
+    _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
     
-    [_manager POST:url parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        NSDictionary *json = @{@"parts":parts,@"mimeType":mimeType,@"fname":fname};
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-        [formData appendPartWithFormData:jsonData name:@""];
-    } progress:uploadProgress success:success failure:failure];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parts options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",json);
+    [_manager POST:url parameters:@{@"parts":parts,@"fname":fname,@"mimeTyep":mimeType} headers:nil progress:uploadProgress success:success failure:failure];
+}
+
+-(void)getPartList:(NSString *)token BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize UploadId:(NSString *)uploadId maxparts:(NSArray *)maxParts partNumberMarker:(NSString *)partNumberMarker progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+    _manager = self.manager;
+    
+    NSString *url;
+    if([encodedObjectNamesize isEqualToString:@""]){
+        url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/~/uploads/%@ ",bucketName,uploadId];
+    }else{
+        //未写
+      //  url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/%@/uploads/%@",bucketName,encodedObjectNamesize,uploadId];
+    }
+   // NSLog(@"%@",url);
+    
+    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    [_manager GET:url parameters:nil headers:nil progress:uploadProgress success:success failure:failure];
 }
 
 @end
