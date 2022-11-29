@@ -123,19 +123,15 @@
     for(NSInteger i = 1;i < data.count + 1;i++){
         NSBlockOperation *temp = [NSBlockOperation blockOperationWithBlock:^{
             dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-            [request uploadPart:token fileData:data[0] BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId PartNumber:PartNumber progress:^(NSProgress * _Nonnull uploadProgress) {
-            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [parts addObject:@{@"partNumber":[NSNumber numberWithInteger:PartNumber],@"etag":responseObject[@"etag"]}];
-                PartNumber++;
-                dispatch_semaphore_signal(sema);
-                NSLog(@"uploadBlock----->%lu",i);
-           
-                if([data.lastObject isEqualToData:data[i-1]]){
-                    [self completeMultipartUpload:token BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId parts:parts isCompleted:YES];
+            [request uploadPart:token fileData:data[i-1] BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId PartNumber:i progress:^(NSProgress * _Nonnull uploadProgress) {
+            } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
+                [parts addObject:@{@"partNumber":[NSNumber numberWithInteger:i],@"etag":responseObject[@"etag"]}];
+                if(error){
+                    NSLog(@"%@",error);
+                }else{
+                    NSLog(@"%@",responseObject);
                 }
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 dispatch_semaphore_signal(sema);
-                NSLog(@"operation1----->%@",error);
             }];
             dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
         }];
@@ -149,15 +145,18 @@
     }
     
    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-   [queue addOperations:relayOperations waitUntilFinished:NO];
+       [queue addOperations:relayOperations waitUntilFinished:NO];
+    [queue addBarrierBlock:^{
+        [self completeMultipartUpload:token BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId parts:parts];
+    }];
+
 }
 
 
 
--(void)completeMultipartUpload:(NSString *)token BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectName UploadId:(NSString *)uploadId parts:(NSArray *)parts isCompleted:(BOOL)isCompleted{
+-(void)completeMultipartUpload:(NSString *)token BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectName UploadId:(NSString *)uploadId parts:(NSArray *)parts{
     // 完成文件上传
-    if(isCompleted){
-        NiuRequest *request = [[NiuRequest alloc] init];
+    NiuRequest *request = [[NiuRequest alloc] init];
        [request completeMultipartUpload:token BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId parts:parts fname:@"gg" mimeType:@"tar" progress:^(NSProgress * _Nonnull uploadProgress) {
             NSLog(@"%@",uploadProgress);
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -165,7 +164,7 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@",error);
         }];
-    }
+    
 }
 
 //-(void)getPartList:(NSInteger)sender{

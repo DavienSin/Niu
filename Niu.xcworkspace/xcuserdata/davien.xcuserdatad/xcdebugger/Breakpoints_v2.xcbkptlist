@@ -494,8 +494,8 @@
             filePath = "Niu/Tool/Http/NiuRequest.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-getPartList:BucketName:EncodedObjectName:UploadId:maxparts:partNumberMarker:progress:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,8 +510,8 @@
             filePath = "Niu/Tool/Http/NiuRequest.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "-getPartList:BucketName:EncodedObjectName:UploadId:maxparts:partNumberMarker:progress:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -526,8 +526,8 @@
             filePath = "Niu/Tool/Http/NiuRequest.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-getPartList:BucketName:EncodedObjectName:UploadId:maxparts:partNumberMarker:progress:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,8 +542,8 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "MainViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -558,8 +558,8 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "MainViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -574,8 +574,8 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "MainViewController"
             landmarkType = "3">
             <Locations>
@@ -637,9 +637,9 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:isCompleted:"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -685,8 +685,8 @@
             filePath = "Niu/Tool/Http/NiuRequest.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:fname:mimeType:progress:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -701,8 +701,8 @@
             filePath = "Niu/Tool/Http/NiuRequest.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:fname:mimeType:progress:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -717,9 +717,9 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:isCompleted:"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -733,9 +733,9 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:isCompleted:"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -749,9 +749,9 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:isCompleted:"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "-completeMultipartUpload:BucketName:EncodedObjectName:UploadId:parts:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -765,56 +765,8 @@
             filePath = "Niu/Controller/Main/MainViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "-uploadBlock:fileData:BucketName:EncodedObjectName:UploadId:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F05C0453-428F-48BD-9593-155F1D867A59"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Niu/Controller/Main/MainViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "-uploadBlock:fileData:BucketName:EncodedObjectName:UploadId:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D5DEA5C6-F97E-4A14-A590-3DD8485CA87E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Niu/Controller/Main/MainViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-uploadBlock:fileData:BucketName:EncodedObjectName:UploadId:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C5E45B73-6F59-4F68-9B8B-74BCFF894D0A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Niu/Controller/Main/MainViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "-uploadBlock:fileData:BucketName:EncodedObjectName:UploadId:"
             landmarkType = "7">
          </BreakpointContent>

@@ -100,20 +100,37 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
 }
 
 
--(void)uploadPart:(NSString *)token fileData:(NSData *)data BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize UploadId:(NSString *)uploadId PartNumber:(NSInteger)partNumber progress:(void (^)(NSProgress * _Nonnull))uploadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+-(void)uploadPart:(NSString *)token fileData:(NSData *)data BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize UploadId:(NSString *)uploadId PartNumber:(NSInteger)partNumber progress:(void (^)(NSProgress * _Nonnull))uploadProgressBlock completionHandler:(void (^)(NSURLResponse * _Nonnull, id _Nonnull, NSError * _Nonnull))completionHandler{
+    
     NSString *url;
     if([encodedObjectNamesize isEqualToString:@""]){
         url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/~/uploads/%@/%lu",bucketName,uploadId,partNumber];
     }else{
         url = [NSString stringWithFormat:@"https://upload-z2.qiniup.com/buckets/%@/objects/%@/uploads/%@/%lu",bucketName,encodedObjectNamesize,uploadId,partNumber];
     }
-    _manager = self.manager;
-    [_manager.requestSerializer setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
-    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
-    _manager.operationQueue.maxConcurrentOperationCount = 1;
 
     
-   [_manager PUT:url parameters:data headers:nil success:success failure:failure];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *sManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
+    
+    sManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSError *err;
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"PUT" URLString:url parameters:nil error:&err];
+    [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
+    
+    if(err){
+        NSLog(@"%@",err);
+    }else{
+     NSURLSessionUploadTask *uploadTask = [sManager uploadTaskWithRequest:request fromData:data progress:uploadProgressBlock completionHandler:completionHandler];
+        [uploadTask resume];
+    }
+}
+
+-(void)uploadPart:(NSString *)token fileData:(NSData *)data BucketName:(NSString *)bucketName EncodedObjectName:(NSString *)encodedObjectNamesize UploadId:(NSString *)uploadId PartNumber:(NSInteger)partNumber completionHandler:(void (^)(NSURLResponse * _Nonnull, id _Nonnull, NSError * _Nonnull))completionHandler{
+    
+    
+    
     
     
 }

@@ -114,9 +114,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param encodedObjectNamesize 资源名
  @param uploadId 上传ID，后续上传的数据必须统一
  @param partNumber partNumber 区块编号，如果设置重复，会数据覆盖,取值1-10000
- @param uploadProgress 上传进度
- @param success 成功回调
- @param failure 失败回调
+ @param uploadProgressBlock 进度条回调
+ @param completionHandler 上传回调，包含成功失败返回信息
  */
 -(void)uploadPart:(NSString *)token
          fileData:(NSData *)data
@@ -124,9 +123,8 @@ NS_ASSUME_NONNULL_BEGIN
 EncodedObjectName:(NSString *)encodedObjectNamesize
          UploadId:(NSString *)uploadId
        PartNumber:(NSInteger)partNumber
-         progress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
-          success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
-          failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
+         progress:(void (^)(NSProgress *uploadProgress)) uploadProgressBlock
+completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler;
 
 
 /**
