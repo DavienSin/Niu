@@ -109,14 +109,12 @@ NSString * const Host = @"https://upload-z2.qiniup.com";
     }
     _manager = self.manager;
     [_manager.requestSerializer setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
-    [_manager.requestSerializer setValue:[NSString stringWithFormat:@"%lu",data.length] forHTTPHeaderField:@"Content-Length"];
     [_manager.requestSerializer setValue:[NSString stringWithFormat:@"UpToken %@",token] forHTTPHeaderField:@"Authorization"];
-    _manager.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    NSMutableURLRequest *req = [_manager.requestSerializer multipartFormRequestWithMethod:@"PUT" URLString:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        [formData appendPartWithFormData:data name:@""];
-//    } error:nil];
+    _manager.operationQueue.maxConcurrentOperationCount = 1;
+
     
    [_manager PUT:url parameters:data headers:nil success:success failure:failure];
+    
     
 }
 

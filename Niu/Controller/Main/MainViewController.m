@@ -123,25 +123,28 @@
     for(NSInteger i = 1;i < data.count + 1;i++){
         NSBlockOperation *temp = [NSBlockOperation blockOperationWithBlock:^{
             dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-            [request uploadPart:token fileData:data[i-1] BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId PartNumber:PartNumber progress:^(NSProgress * _Nonnull uploadProgress) {
-              //  NSLog(@"operation----->%@",uploadProgress);
+            [request uploadPart:token fileData:data[0] BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId PartNumber:PartNumber progress:^(NSProgress * _Nonnull uploadProgress) {
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [parts addObject:@{@"partNumber":[NSNumber numberWithInteger:PartNumber],@"etag":responseObject[@"etag"]}];
                 PartNumber++;
                 dispatch_semaphore_signal(sema);
+                NSLog(@"uploadBlock----->%lu",i);
+           
                 if([data.lastObject isEqualToData:data[i-1]]){
                     [self completeMultipartUpload:token BucketName:@"datest3" EncodedObjectName:@"" UploadId:uploadId parts:parts isCompleted:YES];
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                dispatch_semaphore_signal(sema);
                 NSLog(@"operation1----->%@",error);
             }];
             dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
         }];
-        if(relayOperation){
-            [temp addDependency:relayOperation];
-        }else{
+        if(!relayOperation){
             relayOperation = temp;
+        }else{
+            [temp addDependency:relayOperation];
         }
+        relayOperation = temp;
         [relayOperations addObject:temp];
     }
     
